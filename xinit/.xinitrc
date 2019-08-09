@@ -8,11 +8,7 @@
 ###############################################################################
 
 #set keyboard
-if [ "$(hostname)" == "Mars" ];then
-    setxkbmap gb
-else
-    setxkbmap de
-fi
+setxkbmap de
 
 #make capslock useful
 setxkbmap -option caps:escape
@@ -20,6 +16,18 @@ setxkbmap -option caps:escape
 #prevent screen from blanking
 xset -dpms
 xset s off
+
+#Set default desktop layout
+#$HOME/.screenlayout/Standard.sh
+
+#Set default wallpaper
+nitrogen --restore
+
+#start background applications
+compton &
+dunst &
+unclutter --jitter 20 --ignore-scrolling &
+conky &
 
 #start Window Manager
 exec i3
