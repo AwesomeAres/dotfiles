@@ -1,0 +1,21 @@
+#! /bin/bash
+###############################################################################
+#     File Name           :     mailbox
+#     Created By          :     Anton Riedel <anton.riedel@hotmail.com>
+#     Creation Date       :     [2019-02-24 11:45]
+#     Last Modified       :     [AUTO_UPDATE_BEFORE_SAVE]
+#     Description         :     Script for i3blocks (display email status)
+###############################################################################
+
+case $BLOCK_BUTTON in
+3) $TERMINAL -e neomutt ;;
+2) setsid $HOME/.config/mutt/etc/mailsync.sh >/dev/null &;;
+1) pgrep -x dunst >/dev/null && notify-send "📬 Mail module" "\- Shows unread mail
+- Shows 🔃 if syncing mail
+- Left click opens neomutt
+- Middle click syncs mail" ;;
+esac
+
+if [ ! $(hostname) == "Atlas" ]; then
+    echo "$(du -a $HOME/.mail/*/{INBOX,Inbox}/new/* 2>/dev/null | sed -n '$=') $(cat /tmp/imapsyncicon 2>/dev/null)"
+fi

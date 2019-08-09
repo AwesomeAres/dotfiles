@@ -1,0 +1,30 @@
+#! /bin/bash
+#################################################################################
+#     File Name           :     battery
+#     Created By          :     Anton Riedel <anton.riedel@hotmail.com>
+#     Creation Date       :     [2019-02-24 11:38]
+#     Last Modified       :     [AUTO_UPDATE_BEFORE_SAVE]
+#     Description         :     Script for i3blocks (display state of the
+#                               Battery)
+#################################################################################
+
+case $BLOCK_BUTTON in
+3) pgrep -x dunst >/dev/null && notify-send "🔋 Battery module" "🔋: discharging
+🛑: not charging
+♻: stagnant charge
+🔌: charging
+⚡: charged
+❗: battery very low!" ;;
+esac
+
+if [ -d /sys/class/power_supply/BAT? ]; then
+    capacity=$(cat /sys/class/power_supply/BAT?/capacity)
+    status=$(cat /sys/class/power_supply/BAT?/status)
+    charge_full="$(cat /sys/class/power_supply/BAT?//*_full)"
+    charge_full_design="$(cat /sys/class/power_supply/BAT?/*_full_design)"
+    wear=$(bc <<<"scale=2; ($charge_full / $charge_full_design)*100")
+else
+    echo "⛽" || exit
+fi
+
+echo $(echo "$status" | sed -e "s/,//g;s/Discharging/🔋/;s/Charging/🔌/;s/Unknown/♻️/;s/Full/⚡/;s/ 0*/ /g;s/ :/ /g") $(echo "$capacity" | sed -e 's/$/%/') $(echo \($wear\) | sed 's/\.[0-9]*/%/')
