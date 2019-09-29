@@ -1,6 +1,7 @@
 [options]
 font                         = Hack 18
 clickable_url                = true
+allow_bold                   = true
 icon_name                    = terminal
 cursor_blink                 = off
 mouse_autohide               = true

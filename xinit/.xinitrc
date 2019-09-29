@@ -3,12 +3,12 @@
 #     File Name           :     .xinitrc
 #     Created By          :     Anton Riedel <anton.riedel@hotmail.com>
 #     Creation Date       :     [2019-02-23 19:39]
-#     Last Modified       :     [2019-03-31 18:37]
+#     Last Modified       :     [2019-09-18 15:39]
 #     Description         :     Start Xorg
 ###############################################################################
 
 #set keyboard
-setxkbmap de
+setxkbmap us
 
 #make capslock useful
 setxkbmap -option caps:escape
@@ -27,7 +27,7 @@ nitrogen --restore
 compton &
 dunst &
 unclutter --jitter 20 --ignore-scrolling &
-conky &
+conky -c $HOME/.config/conky/.conkyrc &
 
 #start Window Manager
 exec i3

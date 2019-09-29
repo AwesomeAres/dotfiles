@@ -10,7 +10,7 @@
 # Super key
 set $mod Mod4
 # font for window titles
-font pango:Hack 8
+font pango:Hack 10
 # default border style for new windows
 default_border pixel 3
 default_floating_border none
@@ -73,10 +73,10 @@ bindsym $mod+Shift+5 move container to workspace $ws5
 ##Status bar settings
 bar {
     font pango:hack 10
-    status_command i3blocks
-    position top
-    mode dock
-    modifier None
+        status_command i3blocks
+        position top
+        mode dock
+        modifier None
 }
 
 ##Keybindings for programs

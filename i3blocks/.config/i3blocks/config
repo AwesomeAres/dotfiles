@@ -18,9 +18,15 @@ signal=10
 interval=15
 label=💻
 
-[disk]
+[disk_home]
 interval=60
 command=$HOME/.config/i3blocks/statusbar/disk $HOME 🏠
+
+[disk_hdd0]
+command=$HOME/.config/i3blocks/statusbar/disk /mnt/hdd0 💽
+
+[disk_hdd1]
+command=$HOME/.config/i3blocks/statusbar/disk /mnt/hdd1 💽
 
 [internet]
 interval=10

@@ -2,7 +2,7 @@
 #     File Name           :     .bash_profile
 #     Created By          :     Anton Riedel <anton.riedel@hotmail.com>
 #     Creation Date       :     [2019-02-23 19:41]
-#     Last Modified       :     [2019-03-12 19:43]
+#     Last Modified       :     [2019-09-27 20:47]
 #     Description         :     bash_profile
 ###############################################################################
 
@@ -23,7 +23,7 @@ export BROWSER="/usr/bin/firefox"
 
 #reader for pdf files
 export READER="/usr/bin/zathura"
-export READER2="/usr/bin/evince"
+#export READER2="/usr/bin/evince"
 
 #default options for fzf
 export FZF_DEFAULT_OPTS="--reverse --height=40%"
