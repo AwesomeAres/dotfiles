@@ -11,7 +11,7 @@ conky.config = {
     draw_outline = false, -- amplifies text if yes
         draw_shades = false,
     use_xft = true,
-    font = 'Hack Mono:normal:size=12',
+    font = 'Hack Mono:normal:size=11',
     gap_x = 10,
     gap_y = 30,
     maximum_width  = 320,
@@ -69,20 +69,19 @@ ${cpugraph 000000 597DB2}
 ${color5}${font Sans:normal:size=9}Temperature ${hr 2}$color$font
 Motherboard:${alignr}${exec sensors|grep 'Motherboard Temperature'|awk '{print $3}'}
 Chipset:${alignr}${exec sensors|grep 'Chipset Temperature'|awk '{print $3}'}
-R5 230:${alignr}${exec sensors|grep 'temp1'|awk '{print $2}'}
-${font Hack Mono:bold:size=12}RX 580:${alignr}${exec sensors|grep 'edge'|awk '{print $2}'}
+#R5 230:${alignr}${exec sensors|grep temp230''|awk '{print $2}'}
+${font Hack Mono:bold:size=11}RX 580:${alignr}${exec sensors|grep 'temp1'|awk '{print $2}'}
 
 ${color5}${font Sans:normal:size=9}NETWORK ${hr 2}$color$font
-${if_existing /sys/class/net/wlp5s0/operstate up}${color green}${exec iwgetid -r}${else}${color red}DISCONNECTED${endif}$color
+#${if_existing /sys/class/net/wlp5s0/operstate up}${color green}${exec iwgetid -r}${else}${color red}DISCONNECTED${endif}$color
+#Ping: ${alignr} ${execi 20 ping www.archlinux.org -c 1 | grep time= | rev | cut -c -6 | rev}
+#Down: $color${downspeed wlp5s0}${alignr}Up: ${upspeed wlp5s0}
+#${downspeedgraph wlp5s0 25,140 000000 ff0000} ${alignr}${upspeedgraph wlp5s0 25,140 000000 00ff00}$color
+#Total: ${totaldown wlp5s0} ${alignr}Total: ${totalup wlp5s0}
+${if_existing /sys/class/net/enp6s0/operstate up}${color green}CONNECTED${else}${color red}DISCONNECTED${endif}$color
 Ping: ${alignr} ${execi 20 ping www.archlinux.org -c 1 | grep time= | rev | cut -c -6 | rev}
-Down: $color${downspeed wlp5s0}${alignr}Up: ${upspeed wlp5s0}
-${downspeedgraph wlp5s0 25,140 000000 ff0000} ${alignr}${upspeedgraph wlp5s0 25,140 000000 00ff00}$color
-Total: ${totaldown wlp5s0} ${alignr}Total: ${totalup wlp5s0}
-
-${if_existing /sys/class/net/enp8s0/operstate up}${color green}CONNECTED${else}${color red}DISCONNECTED${endif}$color
-Ping: ${alignr} ${execi 20 ping www.archlinux.org -c 1 | grep time= | rev | cut -c -6 | rev}
-Down: $color${downspeed enp8s0}${alignr}Up: ${upspeed enp8s0}
-${downspeedgraph enp8s0 25,140 000000 ff0000} ${alignr}${upspeedgraph enp8s0 25,140 000000 00ff00}$color
-Total: ${totaldown enp8s0} ${alignr}Total: ${totalup enp8s0}
+Down: $color${downspeed enp6s0}${alignr}Up: ${upspeed enp6s0}
+${downspeedgraph enp6s0 25,140 000000 ff0000} ${alignr}${upspeedgraph enp6s0 25,140 000000 00ff00}$color
+Total: ${totaldown enp6s0} ${alignr}Total: ${totalup enp6s0}
 
 ]];

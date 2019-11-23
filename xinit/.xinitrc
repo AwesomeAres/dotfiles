@@ -24,10 +24,10 @@ xset s off
 nitrogen --restore
 
 #start background applications
-compton &
+picom &
 dunst &
 unclutter --jitter 20 --ignore-scrolling &
 conky -c $HOME/.config/conky/conkyrc &
 
 #start Window Manager
-exec i3
+exec qtile

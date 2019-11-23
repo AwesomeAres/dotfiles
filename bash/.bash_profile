@@ -9,10 +9,8 @@
 #set environment variables
 export PATH=$HOME/.local/bin:$PATH
 export TERMINAL="/usr/bin/termite"
-export EDITOR="/usr/bin/nvim"
+export EDITOR="/usr/bin/vim"
 export VISUAL=$EDITOR
-export MYVIMRC=$HOME/.config/nvim/init.vim
-export MYVIMCONFIG=$HOME/.config/nvim/config
 
 #~/.local/bin/vifm is a custom script to launch vifm with image preview
 #it will be started instead of /usr/bin/vifm since it appears first in PATH

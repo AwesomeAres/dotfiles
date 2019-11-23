@@ -23,7 +23,7 @@ export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput se
 alias ls="ls --color=auto"
 alias ll="ls -al -h --color=auto"
 alias pdf=$READER
-#alias pdf2=$READER2
+alias pdf2=$READER2
 alias v=$EDITOR
 alias vi=$EDITOR
 alias vim=$EDITOR
@@ -39,7 +39,7 @@ alias vpn="sudo vpnc"
 
 ##custom commands
 #search and edit a configuration file
-ce() { nvim $(find $HOME/dotfiles/* -type f | fzf); }
+ce() { vim $(find $HOME/dotfiles/* -type f | fzf); }
 #search and enter a directory (fails if you lack permissions)
 fd() { cd "$(find / -type d 2>/dev/null | fzf)" && pwd && ls; }
 #search for a process and kill it
