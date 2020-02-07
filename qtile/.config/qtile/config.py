@@ -71,9 +71,10 @@ keys = [
 
     # Custom Keybinding
     Key([mod], "b", lazy.spawn("firefox")),
+    Key([mod], "d", lazy.spawn("dmenu_run")),
 ]
 
-groups = [Group(i) for i in "123456789"]
+groups = [Group(i) for i in "12345"]
 
 for i in groups:
     keys.extend([
@@ -92,7 +93,7 @@ layouts = [
 
 widget_defaults = dict(
     font='Hack',
-    fontsize=13,
+    fontsize=15,
     padding=3,
 )
 
@@ -105,20 +106,20 @@ screens = [
                 widget.GroupBox(),
                 widget.Prompt(),
                 widget.WindowName(),
-                widget.Net(),
-                widget.TextBox("🧠"),
+                widget.Systray(),
+                #widget.Net(interface="enp6s0"),
+                widget.TextBox("|🧠"),
                 widget.Memory(),
-                widget.TextBox("🖥️"),
+                widget.TextBox("|🖥️"),
                 widget.CPUGraph(),
                 widget.ThermalSensor(tag_sensor="CPU Temperature"),
-                widget.TextBox("📽️"),
+                widget.TextBox("|📽️"),
                 widget.ThermalSensor(tag_sensor="temp1"),
                 #widget.TextBox("default config", name="default"),
-                widget.Systray(),
-                widget.TextBox("📆"),
-                widget.Clock(format='%a %d.%m.%Y %I:%M %p'),
-                widget.TextBox("🐋"),
-                widget.Pacman(),
+                widget.TextBox("|🕒"),
+                widget.Clock(format='%a %d.%m.%Y - %H:%M'),
+                widget.TextBox("|🐋"),
+                #widget.Pacman(execute = "", update_interval = 1800),
             ],
             24,
         ),
