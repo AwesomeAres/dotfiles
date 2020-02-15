@@ -25,9 +25,9 @@ nitrogen --restore
 
 #start background applications
 picom &
-dunst &
-unclutter --jitter 20 --ignore-scrolling &
-conky -c $HOME/.config/conky/conkyrc &
+#dunst &
+#unclutter --jitter 20 --ignore-scrolling &
+#conky -c $HOME/.config/conky/conkyrc &
 
 #start Window Manager
 exec qtile

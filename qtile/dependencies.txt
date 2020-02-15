@@ -1,0 +1,6 @@
+psutil
+xdg
+#mpd
+iwlib
+dateutil
+#keyring
