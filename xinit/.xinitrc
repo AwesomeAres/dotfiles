@@ -8,7 +8,13 @@
 ###############################################################################
 
 #set keyboard
-setxkbmap us
+if [ "$(hostname)" = "Atlas" ];then
+	setxkbmap us
+else 
+	setxkbmap de
+	picom &
+	flameshot &
+fi 
 
 #make capslock useful
 setxkbmap -option caps:escape
@@ -24,7 +30,6 @@ xset s off
 nitrogen --restore
 
 #start background applications
-#picom &
 #dunst &
 #unclutter --jitter 20 --ignore-scrolling &
 #conky -c $HOME/.config/conky/conkyrc &
