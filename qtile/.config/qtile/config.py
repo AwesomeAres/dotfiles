@@ -49,7 +49,7 @@ keys = [
     Key([mod, "control"], "j", lazy.layout.shuffle_up()),
 
     # Switch window focus to other pane(s) of stack
-    Key([mod], "space", lazy.layout.next()),
+    # Key([mod], "space", lazy.layout.next()),
 
     # Swap panes of split stack
     Key([mod, "shift"], "space", lazy.layout.rotate()),
@@ -86,15 +86,17 @@ for i in groups:
     ])
 
 layouts = [
-    layout.Max(),
     layout.MonadTall(),
-    layout.Stack(num_stacks=2)
+    layout.Max(),
 ]
 
 widget_defaults = dict(
     font='Hack',
     fontsize=15,
     padding=3,
+    border='#ff0000',
+    border_width=3,
+    margin=3,
 )
 
 extension_defaults = widget_defaults.copy()
@@ -103,23 +105,30 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.GroupBox(),
-                widget.Prompt(),
-                widget.WindowName(),
-                widget.Systray(),
-                widget.TextBox("|🧠"),
+                widget.GroupBox(disable_drag=True),
+                # widget.Prompt(),
+                # widget.WindowName(),
+                widget.TaskList(),
+                widget.Sep(linewidth=2, padding=2),
+                widget.TextBox("🧠"),
                 widget.Memory(),
-                widget.TextBox("|🖥️"),
+                widget.Sep(linewidth=2, padding=2),
+                widget.TextBox("🖥️"),
                 widget.CPUGraph(),
                 widget.ThermalSensor(tag_sensor="Tdie"),
-                widget.TextBox("|📽️"),
+                widget.Sep(linewidth=2, padding=2),
+                widget.TextBox("📽️"),
                 widget.ThermalSensor(tag_sensor="edge"),
-                #widget.TextBox("|📀"),
-                #widget.ThermalSensor(tag_sensor="Composite"),
+                widget.Sep(linewidth=2, padding=2),
+                widget.TextBox("📀"),
+                widget.ThermalSensor(tag_sensor="Composite"),
                 #widget.TextBox("default config", name="default"),
-                widget.TextBox("|🕒"),
+                widget.Sep(linewidth=2, padding=2),
+                widget.TextBox("🕒"),
                 widget.Clock(format='%a %d.%m.%Y - %H:%M'),
-                widget.TextBox("|🐋"),
+                widget.Sep(linewidth=2, padding=2),
+                widget.Systray(),
+                widget.TextBox("🐋"),
                 #widget.Pacman(execute = "", update_interval = 1800),
             ],
             24,

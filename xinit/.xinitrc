@@ -24,7 +24,7 @@ xset s off
 nitrogen --restore
 
 #start background applications
-picom &
+#picom &
 #dunst &
 #unclutter --jitter 20 --ignore-scrolling &
 #conky -c $HOME/.config/conky/conkyrc &
