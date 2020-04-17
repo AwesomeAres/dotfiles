@@ -35,4 +35,6 @@ nitrogen --restore
 #conky -c $HOME/.config/conky/conkyrc &
 
 #start Window Manager
-exec qtile
+if [ "$(hostname)" = "Atlas" ];then
+	exec qtile
+fi
