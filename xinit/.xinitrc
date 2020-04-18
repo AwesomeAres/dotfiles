@@ -14,6 +14,7 @@ else
 	setxkbmap de
 	picom &
 	flameshot &
+	cbatticon &
 fi 
 
 #make capslock useful
