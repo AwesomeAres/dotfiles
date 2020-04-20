@@ -74,7 +74,7 @@ keys = [
     Key([mod], "d", lazy.spawn("dmenu_run")),
 ]
 
-groups = [Group(i) for i in "12345"]
+groups = [Group(i) for i in "123456789"]
 
 for i in groups:
     keys.extend([
@@ -109,26 +109,28 @@ screens = [
                 # widget.Prompt(),
                 # widget.WindowName(),
                 widget.TaskList(),
+                widget.Systray(),
                 widget.Sep(linewidth=2, padding=2),
                 widget.TextBox("🧠"),
                 widget.Memory(),
                 widget.Sep(linewidth=2, padding=2),
                 widget.TextBox("🖥️"),
-                widget.CPUGraph(),
-                widget.ThermalSensor(tag_sensor="Tdie"),
+                widget.ThermalSensor(tag_sensor="Package id 0"),
+                widget.Sep(linewidth=2, padding=2),
+                widget.TextBox("📶"),
+                widget.Net(interface=["wlo1"],
+                    update_interval=10,
+                    format='{down}⬇️⬆️{up}'),
                 widget.Sep(linewidth=2, padding=2),
                 widget.TextBox("📽️"),
-                widget.ThermalSensor(tag_sensor="edge"),
+                widget.ThermalSensor(tag_sensor="temp1"),
                 widget.Sep(linewidth=2, padding=2),
-                widget.TextBox("📀"),
-                widget.ThermalSensor(tag_sensor="Composite"),
-                #widget.TextBox("default config", name="default"),
-                widget.Sep(linewidth=2, padding=2),
+                #widget.TextBox("🔋"),
+                #widget.Sep(linewidth=2, padding=2),
                 widget.TextBox("🕒"),
                 widget.Clock(format='%a %d.%m.%Y - %H:%M'),
-                widget.Sep(linewidth=2, padding=2),
-                widget.Systray(),
-                widget.TextBox("🐋"),
+                #widget.Sep(linewidth=2, padding=2),
+                #widget.TextBox("🐋"),
                 #widget.Pacman(execute = "", update_interval = 1800),
             ],
             24,
