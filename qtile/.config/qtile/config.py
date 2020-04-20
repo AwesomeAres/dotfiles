@@ -101,15 +101,6 @@ keys = [
     Key([mod, "control"], "q", lazy.shutdown()),
     Key([mod], "r", lazy.spawncmd()),
 
-    # Switch between workspaces
-    Key(
-        [mod, "shift"], "h",                   # Move window to workspace to the left
-        window_to_prev_group
-    ),
-    Key(
-        [mod, "shift"], "l",                  # Move window to workspace to the right
-        window_to_next_group
-    ),
     # Custom Keybinding
     Key([mod], "b", lazy.spawn("firefox")),
     Key([mod], "d", lazy.spawn("dmenu_run")),
