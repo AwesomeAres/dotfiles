@@ -341,7 +341,7 @@ globalkeys = gears.table.join(
               {description = "show the menubar", group = "launcher"}),
 
     -- My Bindings
-    awful.key({ modkey, }, "b", function() awful.spawn("firefox") end)
+    awful.key({ modkey, }, "b", function() awful.spawn("qutebrowser") end)
 )
 
 clientkeys = gears.table.join(
