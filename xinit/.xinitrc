@@ -12,7 +12,7 @@ if [ "$(hostname)" = "Atlas" ];then
 	setxkbmap us
 else 
 	setxkbmap de
-	picom &
+	xcompmgr &
 	flameshot &
 	cbatticon &
 fi 
