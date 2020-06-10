@@ -70,7 +70,7 @@ keys = [
     Key([mod], "r", lazy.spawncmd()),
 
     # Custom Keybinding
-    Key([mod], "b", lazy.spawn("firefox")),
+    Key([mod], "b", lazy.spawn("qutebrowser")),
     Key([mod], "d", lazy.spawn("dmenu_run")),
 ]
 
