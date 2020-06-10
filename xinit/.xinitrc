@@ -12,7 +12,6 @@ if [ "$(hostname)" = "Atlas" ];then
 	setxkbmap us
 else 
 	setxkbmap de
-	xcompmgr &
 	flameshot &
 	cbatticon &
 fi 
@@ -24,6 +23,9 @@ setxkbmap -option caps:escape
 xset -dpms
 xset s off
 
+#change your life
+xset r rate 300 50
+
 #Set default desktop layout
 #$HOME/.screenlayout/Standard.sh
 
@@ -31,6 +33,7 @@ xset s off
 nitrogen --restore
 
 #start background applications
+xcompmgr &
 #dunst &
 #unclutter --jitter 20 --ignore-scrolling &
 #conky -c $HOME/.config/conky/conkyrc &
