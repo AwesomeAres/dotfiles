@@ -1,19 +1,10 @@
 #! /bin/bash
-###############################################################################
-#     File Name           :     .xinitrc
-#     Created By          :     Anton Riedel <anton.riedel@hotmail.com>
-#     Creation Date       :     [2019-02-23 19:39]
-#     Last Modified       :     [2019-09-29 11:57]
-#     Description         :     Start Xorg
-###############################################################################
-
 #set keyboard
 if [ "$(hostname)" = "Atlas" ];then
 	setxkbmap us
 else 
 	setxkbmap de
 	flameshot &
-	cbatticon &
 fi 
 
 #make capslock useful
@@ -26,19 +17,24 @@ xset s off
 #change your life
 xset r rate 300 50
 
-#Set default desktop layout
-#$HOME/.screenlayout/Standard.sh
-
 #Set default wallpaper
 nitrogen --restore
 
-#start background applications
+#start compositor 
 xcompmgr &
-#dunst &
-#unclutter --jitter 20 --ignore-scrolling &
+
+#shortcuts
+sxhkd &
+
+#beautiful bar
+bar.sh &
 #conky -c $HOME/.config/conky/conkyrc &
+
+#you do not need a mouse
+unclutter --timeout 2 --jitter 100 --ignore-scrolling &
 
 #start Window Manager
 if [ "$(hostname)" = "Atlas" ];then
 	exec qtile
 fi
+exec dwm
