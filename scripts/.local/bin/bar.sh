@@ -12,7 +12,7 @@ trap 'update' 5
 delim="|"
 
 #set update time in s
-time=10
+time=5
 
 #function that outputs the appearance of the statusbar
 status() {
@@ -37,7 +37,7 @@ status() {
 
     #show remaining battery power
     if [ -d /sys/class/power_supply/BAT? ]; then
-        acpi -b | awk '{print $3 $4 "("$5")"}' | sed -e 's/,//g; s/Charging/🔌/g; s/Full/⚡/g; s/Discharging/🔋/g; s/Unknown/♻️/g'
+        acpi -b | awk '/Battery 1/ {print $3 $4 "("$5")"}' | sed -e 's/,//g; s/Charging/🔌/g; s/Full/⚡/g; s/Discharging/🔋/g; s/Unknown/♻️/g'
     else
         echo "⛽"
     fi
@@ -51,6 +51,7 @@ status() {
     # Date and time.
     echo "📅"
     date '+%Y %b %d (%a) %I:%M%p'
+    echo "$delim"
 }
 
 update() {

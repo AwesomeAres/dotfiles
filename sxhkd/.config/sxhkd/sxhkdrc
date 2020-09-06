@@ -1,0 +1,29 @@
+#keybindings for programs
+super + Return
+	$TERMINAL
+super + {_,shift} + b
+	{$BROWSER,$BROWSER2}
+super + n
+	$TERMINAL -e nextsync.sh
+super + {_,shift} + e
+	{$TERMINAL -e neomutt,mailsync}
+super + v
+	$TERMINAL -e newsboat
+super + o
+    xournalpp
+super + {_,shift} + y
+    touch.sh {setup,reset}
+
+#generic
+super + {_,shift} + a
+	{$TERMINAL -e pulsemixer,sound.sh mute}
+super + {_,shift} + p
+	{sound.sh up 10,sound.sh dowm 10}
+
+#menu keybindings
+super + {_,shift} + x
+	{fin.sh,xkill}
+super + {_,shift} + r
+    {dmenu_run ,screen.sh}
+super + g
+	passmenu -i
