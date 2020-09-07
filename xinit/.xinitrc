@@ -5,7 +5,7 @@ if [ "$(hostname)" = "Atlas" ];then
 else 
 	setxkbmap de
 	flameshot &
-	xrandr --output eDP1 --brightness 2
+	xrandr --output eDP1 --brightness 1.1
 fi 
 
 #make capslock useful
