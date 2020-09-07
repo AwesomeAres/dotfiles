@@ -1,10 +1,11 @@
 #! /bin/bash
-#set keyboard
+#set the differences
 if [ "$(hostname)" = "Atlas" ];then
 	setxkbmap us
 else 
 	setxkbmap de
 	flameshot &
+	xrandr --output eDP1 --brightness 2
 fi 
 
 #make capslock useful
