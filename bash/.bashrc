@@ -29,4 +29,4 @@ ce() { vim $(find $HOME/dotfiles/* -type f | fzf); }
 #search and enter a directory (fails if you lack permissions)
 fd() { cd "$(find / -type d 2>/dev/null | fzf)" && pwd && ls; }
 #search for a process and kill it
-kp() { kill -s SIGRTMIN+15 "$(ps -e | fzf | awk '{ print $1 }')" 2>/dev/null; }
+kp() { kill -s SIGKILL "$(ps aux | fzf | awk '{ print $2 }')" 2>/dev/null; }
