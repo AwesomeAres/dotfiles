@@ -19,6 +19,11 @@ export FILE="$HOME/.local/bin/vifm"
 #main browser
 export BROWSER="/usr/bin/firefox"
 
+#for japanese input
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+export GTK_IM_MODULE=fcitx
+
 #reader for pdf files
 export READER="/usr/bin/zathura"
 #export READER2="/usr/bin/evince"

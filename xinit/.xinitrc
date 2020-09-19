@@ -32,6 +32,10 @@ xset r rate 300 50
 #Set default wallpaper
 nitrogen --restore
 
+#japanese input
+fcitx -d &
+uim-xim &
+
 #start background applications
 xcompmgr &
 #dunst &
