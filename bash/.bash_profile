@@ -4,6 +4,11 @@ export TERMINAL="/usr/bin/termite"
 export EDITOR="/usr/bin/vim"
 export VISUAL=$EDITOR
 
+#japanes input with fcitx
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+
 #main browser
 export BROWSER="/usr/bin/firefox"
 

@@ -15,6 +15,9 @@ setxkbmap -option caps:escape
 xset -dpms
 xset s off
 
+#japanes input 
+fcitx -d &
+
 #change your life
 xset r rate 300 50
 
