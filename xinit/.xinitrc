@@ -1,4 +1,5 @@
 #! /bin/bash
+<<<<<<< HEAD
 ###############################################################################
 #     File Name           :     .xinitrc
 #     Created By          :     Anton Riedel <anton.riedel@hotmail.com>
@@ -13,7 +14,7 @@ if [ "$(hostname)" = "Atlas" ];then
 else 
 	setxkbmap de
 	flameshot &
-	cbatticon &
+	xrandr --output eDP1 --brightness 1.1
 fi 
 
 #make capslock useful
@@ -26,23 +27,25 @@ xset s off
 #change your life
 xset r rate 300 50
 
-#Set default desktop layout
-#$HOME/.screenlayout/Standard.sh
+#japanes input 
+fcitx -d &
 
 #Set default wallpaper
 nitrogen --restore
 
-#japanese input
-fcitx -d &
-uim-xim &
-
-#start background applications
+#start compositor 
 xcompmgr &
-#dunst &
-#unclutter --jitter 20 --ignore-scrolling &
+
+#shortcuts
+sxhkd &
+
+#beautiful bar
+bar.sh &
+
 #conky -c $HOME/.config/conky/conkyrc &
 
+#you do not need a mouse
+unclutter --timeout 2 --jitter 100 --ignore-scrolling &
+
 #start Window Manager
-if [ "$(hostname)" = "Atlas" ];then
-	exec qtile
-fi
+exec dwm

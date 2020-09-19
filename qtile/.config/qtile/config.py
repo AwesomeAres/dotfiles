@@ -37,7 +37,39 @@ from libqtile.widget import Spacer
 #from libqtile.widget import *
 from typing import List  # noqa: F401
 
+#for multiscreen
+from Xlib import X, display
+from Xlib.ext import randr
+
+d = display.Display()
+s = d.screen()
+r = s.root
+res = r.xrandr_get_screen_resources()._data
+
+# Dynamic multiscreen! (Thanks XRandr)
+num_screens = 0
+for output in res['outputs']:
+    print("Output %d:" % (output))
+    mon = d.xrandr_get_output_info(output, res['config_timestamp'])._data
+    print("%s: %d" % (mon['name'], mon['num_preferred']))
+    if mon['num_preferred']:
+        num_screens += 1
+
+print("%d screens found!" % (num_screens))
+
 mod = "mod4"
+
+@lazy.function
+def window_to_prev_group(qtile):
+    if qtile.currentWindow is not None:
+        i = qtile.groups.index(qtile.currentGroup)
+        qtile.currentWindow.togroup(qtile.groups[i - 1].name)
+
+@lazy.function
+def window_to_next_group(qtile):
+    if qtile.currentWindow is not None:
+        i = qtile.groups.index(qtile.currentGroup)
+        qtile.currentWindow.togroup(qtile.groups[i + 1].name)
 
 keys = [
     # Switch between windows in current stack pane
@@ -74,7 +106,7 @@ keys = [
     Key([mod], "d", lazy.spawn("dmenu_run")),
 ]
 
-groups = [Group(i) for i in "12345"]
+groups = [Group(i) for i in "123456789"]
 
 for i in groups:
     keys.extend([
@@ -101,40 +133,45 @@ widget_defaults = dict(
 
 extension_defaults = widget_defaults.copy()
 
-screens = [
-    Screen(
-        top=bar.Bar(
-            [
-                widget.GroupBox(disable_drag=True),
-                # widget.Prompt(),
-                # widget.WindowName(),
-                widget.TaskList(),
-                widget.Sep(linewidth=2, padding=2),
-                widget.TextBox("🧠"),
-                widget.Memory(),
-                widget.Sep(linewidth=2, padding=2),
-                widget.TextBox("🖥️"),
-                widget.CPUGraph(),
-                widget.ThermalSensor(tag_sensor="Tdie"),
-                widget.Sep(linewidth=2, padding=2),
-                widget.TextBox("📽️"),
-                widget.ThermalSensor(tag_sensor="edge"),
-                widget.Sep(linewidth=2, padding=2),
-                widget.TextBox("📀"),
-                widget.ThermalSensor(tag_sensor="Composite"),
-                #widget.TextBox("default config", name="default"),
-                widget.Sep(linewidth=2, padding=2),
-                widget.TextBox("🕒"),
-                widget.Clock(format='%a %d.%m.%Y - %H:%M'),
-                widget.Sep(linewidth=2, padding=2),
-                widget.Systray(),
-                widget.TextBox("🐋"),
-                #widget.Pacman(execute = "", update_interval = 1800),
-            ],
-            24,
+screens = []
+for screen in range(0,num_screens):
+    screens.append(
+        Screen(
+            top=bar.Bar(
+                [
+                    widget.GroupBox(disable_drag=True),
+                    # widget.Prompt(),
+                    # widget.WindowName(),
+                    widget.TaskList(),
+                    widget.Systray(),
+                    widget.Sep(linewidth=2, padding=2),
+                    widget.TextBox("🧠"),
+                    widget.Memory(),
+                    widget.Sep(linewidth=2, padding=2),
+                    widget.TextBox("🖥️"),
+                    widget.ThermalSensor(tag_sensor="Package id 0"),
+                    widget.Sep(linewidth=2, padding=2),
+                    widget.TextBox("📶"),
+                    widget.Net(interface=["wlo1"],
+                        update_interval=10,
+                        format='{down}↓↑{up}'),
+                    widget.Sep(linewidth=2, padding=2),
+                    widget.TextBox("📽️"),
+                    widget.ThermalSensor(tag_sensor="temp1"),
+                    widget.Sep(linewidth=2, padding=2),
+                    #widget.TextBox("🔋"),
+                    #widget.Sep(linewidth=2, padding=2),
+                    widget.TextBox("🕒"),
+                    widget.Clock(format='%a %d.%m.%Y - %H:%M'),
+                    #widget.Sep(linewidth=2, padding=2),
+                    #widget.TextBox("🐋"),
+                    #widget.Pacman(execute = "", update_interval = 1800),
+                ],
+                24,
+            ),
         ),
-    ),
-]
+    )
+
 
 # Drag floating layouts.
 mouse = [
