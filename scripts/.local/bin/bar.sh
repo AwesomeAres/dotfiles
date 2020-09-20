@@ -28,7 +28,7 @@ status() {
     echo "$delim"
 
     #show the cpu temperature
-    sensors | awk '/Package id 0/ {print "🔥" $4}'
+    sensors | awk '/Tctl/ {print "🔥" $2}'
     echo "$delim"
 
     #show RAM usage

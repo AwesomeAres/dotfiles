@@ -1,12 +1,4 @@
 #! /bin/bash
-<<<<<<< HEAD
-###############################################################################
-#     File Name           :     .xinitrc
-#     Created By          :     Anton Riedel <anton.riedel@hotmail.com>
-#     Creation Date       :     [2019-02-23 19:39]
-#     Last Modified       :     [2019-09-29 11:57]
-#     Description         :     Start Xorg
-###############################################################################
 
 #set keyboard
 if [ "$(hostname)" = "Atlas" ];then
