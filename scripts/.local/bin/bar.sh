@@ -28,12 +28,12 @@ status() {
     echo "$delim"
 
     #show the cpu temperature
-    sensors | awk '/Tctl/ {print "🔥" $2}'
+    [ "$(hostname)" = "Atlas" ] && sensors | awk '/Tctl/ {print "🔥" $2}'
+    [ "$(hostname)" = "Hades" ] && sensors | awk '/Package id 0/ {print "🔥" $4}'
     echo "$delim"
    
     #show the gpu temperature 
-    sensors | awk '/edge/ {print "📽️" $2}'
-    echo "$delim"
+    [ "$(hostname)" = "Atlas" ] && sensors | awk '/edge/ {print "📽️" $2}' && echo "$delim"
 
     #show RAM usage
     free -h | awk '/^Mem:/ {print "💾" $3 "/" $2}'
