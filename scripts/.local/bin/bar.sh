@@ -30,6 +30,10 @@ status() {
     #show the cpu temperature
     sensors | awk '/Tctl/ {print "🔥" $2}'
     echo "$delim"
+   
+    #show the gpu temperature 
+    sensors | awk '/edge/ {print "📽️" $2}'
+    echo "$delim"
 
     #show RAM usage
     free -h | awk '/^Mem:/ {print "💾" $3 "/" $2}'
