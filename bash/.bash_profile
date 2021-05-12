@@ -1,6 +1,6 @@
 #set environment variables
 export PATH=$HOME/.local/bin:$PATH
-export TERMINAL="/usr/bin/termite"
+export TERMINAL="/usr/bin/alacritty"
 export EDITOR="/usr/bin/vim"
 export VISUAL=$EDITOR
 

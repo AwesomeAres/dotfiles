@@ -28,8 +28,9 @@ status() {
     echo "$delim"
 
     #show the cpu temperature
-    [ "$(hostname)" = "Atlas" ] && sensors | awk '/Tctl/ {print "🔥" $2}'
-    [ "$(hostname)" = "Hades" ] && sensors | awk '/Package id 0/ {print "🔥" $4}'
+    [ "$(cat /etc/hostname)" = "Atlas" ] && sensors | awk '/Tctl/ {print "🔥" $2}'
+    [ "$(cat /etc/hostname)" = "Hades" ] && sensors | awk '/Package id 0/ {print "🔥" $4}'
+    [ "$(cat /etc/hostname)" = "Epimetheus" ] && sensors | awk '/Package id 0/ {print "🔥" $4}'
     echo "$delim"
    
     #show the gpu temperature 
