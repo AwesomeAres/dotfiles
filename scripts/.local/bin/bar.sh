@@ -34,7 +34,7 @@ status() {
     echo "$delim"
    
     #show the gpu temperature 
-    [ "$(hostname)" = "Atlas" ] && sensors | awk '/edge/ {print "📽️" $2}' && echo "$delim"
+    [ "$(cat /etc/hostname)" = "Atlas" ] && sensors | awk '/edge/ {print "📽️" $2}' && echo "$delim"
 
     #show RAM usage
     free -h | awk '/^Mem:/ {print "💾" $3 "/" $2}'
