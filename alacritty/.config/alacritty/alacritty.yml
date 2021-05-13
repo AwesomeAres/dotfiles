@@ -180,10 +180,10 @@ font:
 colors:
   # Default colors
   primary:
-    background: '0x2b2b2b'
-    foreground: '0xdedede'
-  #  background: '#1d1f21'
-  #  foreground: '#c5c8c6'
+    #  background: '0x2b303b'
+    #foreground: '0xc0c5ce'
+    background: '#1d1f21'
+    foreground: '#c5c8c6'
 
     # Bright and dim foreground colors
     #
@@ -271,24 +271,23 @@ colors:
 
   # Normal colors
   #normal:
-  #  black:   '#1d1f21'
-  #  red:     '#cc6666'
-  #  green:   '#b5bd68'
-  #  yellow:  '#f0c674'
-  #  blue:    '#81a2be'
-  #  magenta: '#b294bb'
-  #  cyan:    '#8abeb7'
-  #  white:   '#c5c8c6'
+  # black:   '#1d1f21'
+  # red:     '#cc6666'
+  # green:   '#b5bd68'
+  # yellow:  '#f0c674'
+  # blue:    '#81a2be'
+  # magenta: '#b294bb'
+  # cyan:    '#8abeb7'
+  # white:   '#c5c8c6'
   normal:
-    black:   '0x2e3436'
-    red:     '0xcc0000'
-    green:   '0x4e9a06'
-    yellow:  '0xc4a000'
-    blue:    '0x3465a4'
-    magenta: '0x75507b'
-    cyan:    '0x06989a'
-    white:   '0xd3d7cf'
-
+    black:   '0x171717'
+    red:     '0xd81765'
+    green:   '0x97d01a'
+    yellow:  '0xffa800'
+    blue:    '0x16b1fb'
+    magenta: '0xff2491'
+    cyan:    '0x0fdcb6'
+    white:   '0xebebeb'
   # Bright colors
   #bright:
   #  black:   '#666666'
@@ -300,14 +299,14 @@ colors:
   #  cyan:    '#70c0b1'
   #  white:   '#eaeaea'
   bright:
-    black:   '0x555753'
-    red:     '0xef2929'
-    green:   '0x8ae234'
-    yellow:  '0xfce94f'
-    blue:    '0x729fcf'
-    magenta: '0xad7fa8'
-    cyan:    '0x34e2e2'
-    white:   '0xeeeeec'
+    black:   '0x38252c'
+    red:     '0xff0000'
+    green:   '0x76b639'
+    yellow:  '0xe1a126'
+    blue:    '0x289cd5'
+    magenta: '0xff2491'
+    cyan:    '0x0a9b81'
+    white:   '0xf8f8f8'
 
   # Dim colors
   #
@@ -378,7 +377,7 @@ colors:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.7
+background_opacity: 0.8
 
 #selection:
   # This string contains all characters that are used as separators for
