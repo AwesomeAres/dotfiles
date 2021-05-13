@@ -28,4 +28,4 @@ settings:
   url.start_pages:
     global: https://archlinux.org
   zoom.default:
-    global: 175%
+    global: 140%
