@@ -11,7 +11,7 @@ settings:
   completion.delay:
     global: 0
   fonts.default_family:
-    global: null
+    global: Hack
   fonts.default_size:
     global: 15pt
   url.searchengines:

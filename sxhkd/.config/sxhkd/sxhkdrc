@@ -18,6 +18,6 @@ super + {_,shift} + p
 super + {_,shift} + x
 	{fin.sh,xkill}
 super + {_,shift} + r
-    {dmenu_run ,screen.sh}
+    {dmenu_run -fn 'Hack-15',screen.sh}
 super + g
 	passmenu -i
