@@ -10,6 +10,14 @@ settings:
     global: 0
   completion.delay:
     global: 0
+  completion.open_categories:
+    global:
+    - searchengines
+    - quickmarks
+    - bookmarks
+    - filesystem
+  completion.web_history.max_items:
+    global: 0
   fonts.default_family:
     global: Hack
   fonts.default_size:
