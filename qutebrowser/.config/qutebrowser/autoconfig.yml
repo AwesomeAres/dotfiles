@@ -20,6 +20,8 @@ settings:
     global: 0
   content.blocking.method:
     global: both
+  content.pdfjs:
+    global: true
   fonts.default_family:
     global: Hack
   fonts.default_size:
