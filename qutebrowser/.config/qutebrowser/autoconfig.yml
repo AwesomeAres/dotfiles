@@ -18,6 +18,8 @@ settings:
     - filesystem
   completion.web_history.max_items:
     global: 0
+  content.blocking.method:
+    global: both
   fonts.default_family:
     global: Hack
   fonts.default_size:
