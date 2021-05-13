@@ -1,12 +1,17 @@
 #! /bin/bash
 
 #set keyboard
-if [ "$(hostname)" = "Atlas" ];then
+
+if [ "$(cat /etc/hostname)" = "Atlas" ]; then
 	setxkbmap us
-else 
+	fcitx -d & #japanese Input
+elif [ "$(cat /etc/hostname)" = "Hades" ]; then
 	setxkbmap de
 	flameshot &
+	fcitx -d & #japanese Input
 	xrandr --output eDP1 --brightness 1.1
+else 
+	setxkbmap de
 fi 
 
 #make capslock useful
@@ -20,7 +25,7 @@ xset s off
 xset r rate 300 50
 
 #japanes input 
-fcitx -d &
+#fcitx -d &
 
 #Set default wallpaper
 nitrogen --restore
