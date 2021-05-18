@@ -11,6 +11,7 @@ export XMODIFIERS=@im=fcitx
 
 #main browser
 export BROWSER="/usr/bin/qutebrowser"
+export BROWSER="/usr/bin/firefox"
 
 #reader for pdf files
 export READER="/usr/bin/qpdfview"
