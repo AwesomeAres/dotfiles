@@ -20,6 +20,8 @@ settings:
     global: 0
   content.blocking.method:
     global: both
+  content.notifications.enabled:
+    https://www.reddit.com: false
   content.pdfjs:
     global: true
   fonts.default_family:
