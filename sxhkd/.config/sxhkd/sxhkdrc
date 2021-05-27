@@ -1,7 +1,7 @@
 #keybindings for programs
 super + Return
 	$TERMINAL
-super + t
+super + shift + t 
 	$TERMINAL
 super + {_,shift} + b
 	{$BROWSER,$BROWSER2}
