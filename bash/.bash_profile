@@ -10,11 +10,11 @@ export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 
 #main browser
-export BROWSER="/usr/bin/qutebrowser"
+#export BROWSER="/usr/bin/qutebrowser"
 export BROWSER="/usr/bin/firefox"
 
 #reader for pdf files
-export READER="/usr/bin/qpdfview"
+export READER="/usr/bin/evince"
 export READER2="/usr/bin/zathura"
 
 #default options for fzf
