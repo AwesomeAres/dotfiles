@@ -9,7 +9,7 @@ elif [ "$(cat /etc/hostname)" = "Hades" ]; then
 	setxkbmap de
 	flameshot &
 	fcitx -d & #japanese Input
-	xrandr --output eDP1 --brightness 1.1
+	xrandr --output eDP1 --brightness 0.8
 else 
 	setxkbmap de
 fi 
