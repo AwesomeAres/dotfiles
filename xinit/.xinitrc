@@ -4,11 +4,11 @@
 
 if [ "$(cat /etc/hostname)" = "Atlas" ]; then
 	setxkbmap us
-	fcitx -d & #japanese Input
+#	fcitx -d & #japanese Input
 elif [ "$(cat /etc/hostname)" = "Hades" ]; then
 	setxkbmap de
 	flameshot &
-	fcitx -d & #japanese Input
+#	fcitx -d & #japanese Input
 	xrandr --output eDP1 --brightness 0.8
 else 
 	setxkbmap de
