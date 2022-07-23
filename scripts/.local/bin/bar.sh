@@ -29,7 +29,7 @@ status() {
 
     #show the cpu temperature
     [ "$(cat /etc/hostname)" = "Atlas" ] && sensors | awk '/Tctl/ {print "🔥" $2}'
-    [ "$(cat /etc/hostname)" = "Hades" ] && sensors | awk '/Package id 0/ {print "🔥" $4}'
+    [ "$(cat /etc/hostname)" = "hades" ] && sensors | awk '/Package id 0/ {print "🔥" $4}'
     [ "$(cat /etc/hostname)" = "Epimetheus" ] && sensors | awk '/Package id 0/ {print "🔥" $4}'
     echo "$delim"
    
