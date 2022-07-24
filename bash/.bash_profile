@@ -10,8 +10,8 @@ export VISUAL=$EDITOR
 #export XMODIFIERS=@im=fcitx
 
 #main browser
-export BROWSER="/usr/bin/qutebrowser"
-#export BROWSER="/usr/bin/firefox"
+#export BROWSER="/usr/bin/qutebrowser"
+export BROWSER="/usr/bin/firefox"
 
 #reader for pdf files
 export READER="/usr/bin/evince"
