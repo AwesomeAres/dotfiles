@@ -3,8 +3,8 @@ super + Return
 	$TERMINAL
 super + shift + t 
 	$TERMINAL
-super + {_,shift} + b
-	{$BROWSER,$BROWSER2}
+super + b
+	{$BROWSER}
 super + o
     xournalpp
 
