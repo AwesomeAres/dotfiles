@@ -2,10 +2,10 @@
 
 #set keyboard
 
-if [ "$(cat /etc/hostname)" = "Atlas" ]; then
+if [ "$(cat /etc/hostname)" = "atlas" ]; then
 	setxkbmap us
 #	fcitx -d & #japanese Input
-elif [ "$(cat /etc/hostname)" = "Hades" ]; then
+elif [ "$(cat /etc/hostname)" = "hades" ]; then
 	setxkbmap de
 	flameshot &
 #	fcitx -d & #japanese Input
