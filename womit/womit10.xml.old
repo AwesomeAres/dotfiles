@@ -5,7 +5,7 @@ OVERWRITTEN AND LOST. Changes to this xml configuration should be made using:
 or other application using the libvirt API.
 -->
 
-<domain type='kvm'>
+<domain type='kvm' xmlns:qemu='http://libvirt.org/schemas/domain/qemu/1.0'>
   <name>womit10</name>
   <uuid>3878715b-55a2-4eaa-8ed4-ae4225c43215</uuid>
   <metadata>
@@ -137,15 +137,10 @@ or other application using the libvirt API.
     </input>
     <input type='mouse' bus='ps2'/>
     <input type='keyboard' bus='ps2'/>
-    <graphics type='spice' autoport='yes'>
+    <graphics type='vnc' port='-1' autoport='yes'>
       <listen type='address'/>
     </graphics>
-    <sound model='ich9'>
-      <codec type='micro'/>
-      <audio id='1'/>
-      <address type='pci' domain='0x0000' bus='0x00' slot='0x1b' function='0x0'/>
-    </sound>
-    <audio id='1' type='pulseaudio' serverName='/run/user/1000/pulse/native'/>
+    <audio id='1' type='none'/>
     <video>
       <model type='qxl' ram='65536' vram='65536' vgamem='16384' heads='1' primary='yes'/>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x01' function='0x0'/>
@@ -161,6 +156,13 @@ or other application using the libvirt API.
         <vendor id='0x045e'/>
         <product id='0x028e'/>
       </source>
+      <address type='usb' bus='0' port='5'/>
+    </hostdev>
+    <hostdev mode='subsystem' type='usb' managed='yes'>
+      <source>
+        <vendor id='0x04d9'/>
+        <product id='0x0462'/>
+      </source>
       <address type='usb' bus='0' port='4'/>
     </hostdev>
     <redirdev bus='usb' type='spicevmc'>
@@ -173,4 +175,12 @@ or other application using the libvirt API.
       <address type='pci' domain='0x0000' bus='0x05' slot='0x00' function='0x0'/>
     </memballoon>
   </devices>
+  <qemu:commandline>
+    <qemu:arg value='-device'/>
+    <qemu:arg value='ich9-intel-hda,bus=pcie.0,addr=0x1b'/>
+    <qemu:arg value='-device'/>
+    <qemu:arg value='hda-micro,audiodev=hda'/>
+    <qemu:arg value='-audiodev'/>
+    <qemu:arg value='pa,id=hda,server=unix:/run/user/1000/pulse/native'/>
+  </qemu:commandline>
 </domain>
