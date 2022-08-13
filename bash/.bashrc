@@ -3,6 +3,9 @@ shopt -s autocd
 stty -ixon
 set -o vi
 
+#set ccache for compiling lineageos
+#ccache -M 30G
+
 #set infinite history
 HISTFILESIZE= HISTSIZE=
 #ignore repeated commands

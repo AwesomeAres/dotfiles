@@ -4,6 +4,16 @@ export TERMINAL="/usr/bin/alacritty"
 export EDITOR="/usr/bin/vim"
 export VISUAL=$EDITOR
 
+#add Android SDK platform tools to path 
+#if [ -d "$HOME/platform-tools" ] ; then
+#	PATH="$HOME/platform-tools:$PATH"
+#fi
+
+#add ~/bin to Path (don't want it on github)
+#if [ -d "$HOME/bin" ] ; then
+#	PATH="$HOME/bin:$PATH"
+#fi 
+
 #japanes input with fcitx
 #export GTK_IM_MODULE=fcitx
 #export QT_IM_MODULE=fcitx
